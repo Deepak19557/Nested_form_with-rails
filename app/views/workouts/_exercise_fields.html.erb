@@ -1,0 +1,25 @@
+<div class="nested-fields">
+    <%= f.hidden_field :_destroy %>
+    <div class="container">
+        <div class="field form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class:"form-control",placeholder:"Name" %>
+        </div>
+        <div class="field form-group">
+            <%= f.label :sets %>
+            <%= f.number_field :sets, class:"form-control",placeholder:"Sets" %>
+        </div>
+        <div class="field form-group">
+            <%= f.label :reps %>
+            <%= f.number_field :reps, class:"form-control",placeholder:"Reps" %>
+        </div>
+        <div class="field form-group">
+            <%= f.label :weight %>
+            <%= f.number_field :weight, class:"form-control",placeholder:"Weight" %>
+        </div>
+
+        <%#= f.check_box :_destroy %>
+        <%#= f.label :_destroy, "Remove" %>
+        <%#= link_to "Remove", '#', class: "remove_fields" %>
+    </div>
+</div> 

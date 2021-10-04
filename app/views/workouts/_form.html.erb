@@ -1,0 +1,46 @@
+<%= form_with model: @workout, local: true do |f| %>
+  	<div class="container">
+	  	<div class="field form-group">
+		  <%= f.label :"date & field" %><br>
+		  <%= f.date_field :date ,class:"form-control",placeholder:"Date for Workout" %><br>
+		</div>
+		<div class="field form-group">
+		  <%= f.label :name %><br>
+		  <%= f.text_field :name ,class:"form-control",placeholder:"Name of Workout" %><br>
+		</div>
+		<div class="field form-group">
+			<%= f.label :length %><br>
+		    <%= f.number_field :length ,class:"form-control",placeholder:"Length" %><br>
+		</div>
+		<div class="field form-group">
+		    <%= f.label :time_of_day %><br>
+		    <%= f.text_field :time_of_day, class:"form-control",placeholder:"Time_of_Day"%><br>
+		</div> 
+				
+    		<h3>Exercises:</h3>
+	    		<%= f.fields_for :exercises do |exercises_form| %>
+	        		<%= render "exercise_fields", f: exercises_form %>
+	    		<% end %>
+    		<%= link_to_add_fields "Add Exercise", f, :exercises %>
+    		<%#= link_to_remove_fields "Add Exercise", f, :exercises %>
+			<%= f.submit class: "btn btn-primary"  %>
+	</div>
+<% end %>
+<script type="text/javascript">
+  $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+</script>
+<script type="text/javascript">
+  $('form').on('click', '.remove_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+</script>

@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered table-hover friend_list">
+    <thead class="thead-dark">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Length</th>
+            <th>Time of Day</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @search.each do |work| %>
+            <tr class="size">
+                <td><%= work.date %></td>
+                <td><%= work.name %></td>
+                <td><%= work.length %></td>
+                <td><%= work.time_of_day %></td>
+            </tr>
+        <% end%>
+    </tbody>
+</table> 
+<br><br><br>
+
+
+</table>  

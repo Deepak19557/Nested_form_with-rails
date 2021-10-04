@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gym2021</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  <p class="navbar-text float-right">
+   <% if member_signed_in? %>
+     Logged in as <strong><%= current_member.email %></strong>.
+     <%= link_to 'Edit profile', edit_member_registration_path, :class => 'navbar-link' %> 
+     <%= link_to "Logout", destroy_member_session_path, method: :delete, :class => 'navbar-link'  %>
+      
+
+   <% else %>
+     <%= link_to "Sign up", new_member_registration_path, :class => 'navbar-link'  %> |
+     <%= link_to "Login", new_member_session_path, :class => 'navbar-link'  %>
+   <% end %>
+  </p>
+
+    <%= yield %>
+  </body>
+</html>

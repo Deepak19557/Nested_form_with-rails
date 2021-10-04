@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-05-06 11:24:56
+  name: MyString
+  length: 1
+  time_of_day: MyString
+
+two:
+  date: 2021-05-06 11:24:56
+  name: MyString
+  length: 1
+  time_of_day: MyString
